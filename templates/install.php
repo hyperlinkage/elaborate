@@ -3,7 +3,7 @@
 /*
     Elaborate - A web collaboration engine written in PHP & MySQL
     Copyright (C) 2004 Tim Booker
-    http://elaborate.sourceforge.net/
+    https://github.com/hyperlinkage/elaborate
 
     Contributors:
         Tim Booker <tim@hyperlinkage.com>
