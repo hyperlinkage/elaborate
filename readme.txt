@@ -3,7 +3,7 @@ Copyright (C) 2004 Tim Booker
 http://elaborate.sourceforge.net/
 
 Contributors:
-    Tim Booker <elaborate@7segment.org>
+    Tim Booker <tim@hyperlinkage.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
