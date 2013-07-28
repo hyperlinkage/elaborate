@@ -1,0 +1,302 @@
+/*
+    Elaborate - A web collaboration engine written in PHP & MySQL
+    Copyright (C) 2004 Tim Booker
+    http://elaborate.sourceforge.net/
+
+    Contributors:
+        Tim Booker <elaborate@7segment.org>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+* {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+body {
+    color: #333333;
+    background: #cccccc;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 140%;
+    text-align: center;
+}
+
+#container {
+    width: 750px;
+    margin: 10px auto 0 auto;
+    text-align: left;
+}
+
+
+/* common site header */
+
+#header {
+    height: 48px;
+    padding: 0 20px 0 20px;
+}
+
+#header .logo {
+    font-size: 18px;
+
+}
+
+#header .nav {
+    padding-top: 5px;
+}
+
+#header .nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+#header .nav li {
+    width: 75px;
+    display: block;
+    float: left;
+    margin: 0 2px 0 0;
+    padding: 0;
+    font-size: 11px;
+}
+
+#header .nav li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+#header .search {
+    width: 200px;
+    float: right;
+    text-align: right;
+    font-size: 11px;
+}
+
+#header .search input {
+    font-size: 11px;
+    margin: 0 0 0 2px;
+    padding-left: 2px;
+    border: 1px solid #999999;
+}
+
+#header form {
+    display: inline;
+}
+
+#page form {
+    display: block;
+    margin: 0 0 12px 0;
+}
+
+#tabs {
+    padding-left: 10px;
+    background: url(../images/tab-bar-bg.gif) no-repeat bottom left;
+    padding-bottom: 4px;
+    border-top: 1px solid #cccccc;
+}
+
+#tabs ul {
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    clear: both;
+}
+
+#tabs li {
+    width: 90px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin: 0 2px 0 0;
+    padding: 0;
+    font-size: 11px;
+    background: url(../images/tab-bg.gif) no-repeat top left;
+}
+
+#tabs a {
+    display: block;
+    padding: 2px 0 0 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+#page {
+    background: #ffffff url(../images/page-bg.gif) no-repeat bottom left;
+    padding: 5px 20px 18px 20px;
+    margin: 0;
+}
+
+#footer {
+    padding: 5px 20px 20px 20px;    
+}
+
+#footer p {
+    text-align: right;
+    font-size: 10px;   
+}
+
+a {
+    color: #0000ff;
+}
+
+a:hover {
+    color: #00ff00;
+}
+
+img {
+    border: none;   
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: normal;
+    margin: 8px 0 16px 0;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 16px 0 8px 0;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 16px 0 8px 0;
+}
+
+p, td, li, dt, dd {
+    font: 13px/140% "Trebuchet MS", Verdana, sans-serif;
+}
+
+p {
+    margin: 0 0 16px 0;
+}
+
+p.date {
+    margin: 0;
+    font-size: 10px;
+    font-style: italic;    
+}
+
+dt {
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+dd {
+    margin-left: 32px;
+    margin-bottom: 12px;
+}
+
+code, code *, pre, pre * {
+    font: 12px "Lucida Console","Courier New",monospace;
+}
+
+code, pre {
+    color: #555555;   
+}
+
+thead td, th {
+    font-weight: bold;
+    text-align: left;
+}
+
+/* forms and inputs */
+
+
+input, textarea {
+    
+}
+
+textarea {
+    overflow: auto;   
+}
+
+input.smalltext, textarea.text {
+    padding: 0 0 0 2px;
+    font-size: 12px;    
+    width: 250px;
+    border: 1px solid #999999;
+}
+
+textarea.text {
+    height: 60px;
+}
+
+textarea.html {
+    padding: 0 0 0 2px;
+    font:  12px "Lucida Console","Courier New",monospace;
+    width: 700px;
+    height: 300px;    
+    border: 1px solid #999999;
+}
+
+input.button {
+    background: #999999;
+    color: #ffffff;
+    border: none;
+    margin-right: 2px;
+    padding: 0 2px 0 2px;    
+}
+
+div.field {
+    margin-bottom: 8px;
+}
+
+div.label {
+    font-size: 11px;   
+}
+
+.error {
+    color: #ff0000;    
+}
+
+.broken {
+    color: #666666;   
+}
+
+/* file comparisons */
+
+table.diff {
+    width: 100%;
+}
+
+table.diff td {
+    width: 50%;
+    vertical-align: top;
+    padding: 2px 0 0 5px;
+}
+
+.unchanged, .changed, .inserted, .removed, .null {
+    font: 12px "Lucida Console", "Courier New", monospace;
+}
+.unchanged {
+    background-color: #dddddd;
+}
+.changed {
+    background-color: #ffff99;
+}
+.inserted {
+    background-color: #99ff99;
+}
+.removed {
+    background-color: #ff9999;
+}
+.null {
+    background-color: #cccccc;
+}
