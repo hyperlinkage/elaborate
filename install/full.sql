@@ -30,7 +30,7 @@ CREATE TABLE `elaborate_locks` (
   `ip` varchar(255) default NULL,
   `session` varchar(32) default NULL,
   PRIMARY KEY  (`page`)
-) TYPE=MyISAM;
+) ;
 
 # Table structure for table `elaborate_pages`
 DROP TABLE IF EXISTS `elaborate_pages`;
@@ -44,7 +44,7 @@ CREATE TABLE `elaborate_pages` (
   `type` varchar(255) default NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `searchdata` (`searchdata`)
-) TYPE=MyISAM;
+) ;
 
 # Data for table `elaborate_pages`
 INSERT INTO `elaborate_pages` VALUES ( UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '', 'Home', '<p>Thanks for installing Elaborate!  This page is now yours, so feel free to click the edit tab to remove this message and start creating your own content.</p>\r\n\r\n<p>Remember to visit our <a href=\\"http://www.apatheticgenius.com/projects/elaborate/\\">web site</a> or subscribe to our <a href=\\"http://sourceforge.net/export/rss2_projfiles.php?group_id=122760\\">RSS feed</a> to keep updated of our new releases.</p>', '', 'home' );
@@ -60,7 +60,7 @@ CREATE TABLE `elaborate_revisions` (
   `user` INT( 11 ) default NULL,
   `ip` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
+) ;
 
 # Table structure for table 'elaborate_users'
 DROP TABLE IF EXISTS `elaborate_users`;
@@ -77,7 +77,7 @@ CREATE TABLE `elaborate_users` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) TYPE=MyISAM;
+) ;
 
 # Table structure for table 'elaborate_links'
 DROP TABLE IF EXISTS `elaborate_links`;

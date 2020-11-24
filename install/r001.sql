@@ -34,7 +34,7 @@ CREATE TABLE `elaborate_users` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE `elaborate_links` (
     `page` INT( 11 ) ,
@@ -45,7 +45,7 @@ CREATE TABLE `elaborate_links` (
 ALTER TABLE `elaborate_links` ADD UNIQUE (
     `page` ,
     `link`
-)
+);
 
 ALTER TABLE `elaborate_revisions` DROP `keywords`;
 ALTER TABLE `elaborate_pages` DROP `keywords`;

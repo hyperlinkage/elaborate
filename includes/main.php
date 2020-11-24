@@ -36,7 +36,7 @@
     $GLOBALS[ 'version' ] = '2004-12-12';
 
     $GLOBALS[ 'session' ]   = new Session();
-    $GLOBALS[ 'db' ]        = new DB( $mysqlHostname, $mysqlDatabase, $mysqlUsername, $mysqlPassword );
+    $GLOBALS[ 'db' ]        = new DB($mysqlHostname, $mysqlDatabase, $mysqlUsername, $mysqlPassword, $mysqlPort);
     $GLOBALS[ 'installer' ] = new DBInstaller();
     $GLOBALS[ 'wiki' ]      = new Wiki();
     $GLOBALS[ 'rss' ]       = new RSS();

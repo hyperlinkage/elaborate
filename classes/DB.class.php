@@ -26,12 +26,13 @@
 
     class DB {
 
-        function DB( $mysqlHost, $mysqlDb, $mysqlUser, $mysqlPass ) {
+        function DB($mysqlHost, $mysqlDb, $mysqlUser, $mysqlPass, $mysqlPort) {
 
             $this->mysqlHost = $mysqlHost;
             $this->mysqlDb   = $mysqlDb;
             $this->mysqlUser = $mysqlUser;
             $this->mysqlPass = $mysqlPass;
+            $this->mysqlPort = $mysqlPort;
 
             // required user privileges
             $this->privileges = array( 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'ALTER', 'DROP' );
@@ -39,9 +40,10 @@
             $this->active = false;
             $this->queries = array();
 
-            $this->database = @ mysql_connect( $this->mysqlHost, $this->mysqlUser, $this->mysqlPass );
+            $this->database =  mysqli_connect($this->mysqlHost, $this->mysqlUser, $this->mysqlPass, $this->mysqlDb, $this->mysqlPort);
             
-            if( @ mysql_select_db( $this->mysqlDb, $this->database ) ) {
+            if($this->database !== false)
+            {
                 $this->active = true;
             }
         }
@@ -88,17 +90,18 @@
 
             $this->queries[] = $mySqlQry;
 
-            return @ mysql_query( $mySqlQry );
+            return mysqli_query($this->database, $mySqlQry);
         }
 
         function getRows( $mySqlQry ) {
 
             $this->queries[] = $mySqlQry;
 
-            $qry = @ mysql_query( $mySqlQry );
+            $qry =  mysqli_query($this->database, $mySqlQry);
             $rows = array();
 
-            while( $row = mysql_fetch_array( $qry, MYSQL_ASSOC ) ) {
+            while($row = mysqli_fetch_array($qry, MYSQLI_ASSOC))
+            {
                 $rows[] = $row;
             }
 
@@ -109,27 +112,27 @@
 
             $this->queries[] = $mySqlQry;
 
-            $qry = @ mysql_query( $mySqlQry );
+            $qry = mysqli_query($this->database, $mySqlQry );
 
-            return mysql_insert_id();
+            return mysqli_insert_id($this->database);
         }
 
         function updateRows( $mySqlQry ) {
 
             $this->queries[] = $mySqlQry;
 
-            $qry = @ mysql_query( $mySqlQry );
+            $qry = mysqli_query($this->database, $mySqlQry );
 
-            return mysql_affected_rows();
+            return mysqli_affected_rows($this->database);
         }
 
         function deleteRows( $mySqlQry ) {
 
             $this->queries[] = $mySqlQry;
 
-            $qry = @ mysql_query( $mySqlQry );
+            $qry = mysqli_query($this->database, $mySqlQry );
 
-            return mysql_affected_rows();
+            return mysqli_affected_rows($this->database);
         }
 
         function insertAssoc( $tableName, $assocArray ) {
@@ -146,21 +149,23 @@
 
         function getTables() {
 
-            $tables = array();
-
-            $result = mysql_list_tables( $this->mysqlDb );
-            $numrows = mysql_num_rows( $result );
-
-            for( $i = 0; $i < $numrows; $i++ ) {
-               $tables[] = mysql_tablename( $result, $i );
-            }
-            return $tables;
+			$tableList = array();
+			$tables = $this->getRows("SHOW TABLES");
+			
+			foreach($tables as $key => $val)
+			{
+				foreach($val as $k => $v)
+				{
+					$tableList[] = $v;
+				}					
+			}
+			return $tableList;
         }
 
         function queryFromFile( $path ) {
             // execute sql queries in an external file
 
-            $sql = @ file( $path );
+            $sql = file( $path );
             $sql = implode( "\n", $sql );
 
             $sqlLines = explode( ';', $sql );
