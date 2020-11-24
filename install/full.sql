@@ -1,9 +1,9 @@
 #    Elaborate - A web collaboration engine written in PHP & MySQL
-#    Copyright (C) 2004 Tim Booker        
+#    Copyright (C) 2004 -2020 Tim Booker        
 #    https://github.com/hyperlinkage/elaborate
 #
 #    Contributors: 
-#        Tim Booker <tim@hyperlinkage.com>
+#        Tim Booker <timbooker@hyperlinkage.com>
 #
 #    This program is free software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ CREATE TABLE `elaborate_pages` (
 ) ;
 
 # Data for table `elaborate_pages`
-INSERT INTO `elaborate_pages` VALUES ( UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '', 'Home', '<p>Thanks for installing Elaborate!  This page is now yours, so feel free to click the edit tab to remove this message and start creating your own content.</p>\r\n\r\n<p>Remember to visit our <a href=\\"http://www.apatheticgenius.com/projects/elaborate/\\">web site</a> or subscribe to our <a href=\\"http://sourceforge.net/export/rss2_projfiles.php?group_id=122760\\">RSS feed</a> to keep updated of our new releases.</p>', '', 'home' );
+INSERT INTO `elaborate_pages` VALUES ( UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '', 'Home', '<p>Thanks for installing Elaborate!  This page is now yours, so feel free to click the edit tab to remove this message and start creating your own content.</p>', '', 'home' );
 
 # Table structure for table `elaborate_revisions`
 DROP TABLE IF EXISTS `elaborate_revisions`;
