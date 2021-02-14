@@ -1,5 +1,5 @@
 #    Elaborate - A web collaboration engine written in PHP & MySQL
-#    Copyright (C) 2004 -2020 Tim Booker        
+#    Copyright (C) 2004-2020 Tim Booker        
 #    https://github.com/hyperlinkage/elaborate
 #
 #    Contributors: 

@@ -91,14 +91,26 @@
                 // remaining wiki links are given an add button
                 if( preg_match_all( '/<wiki>(.*)<\/wiki>/isU', $page[ 'content' ], $matches ) ) {
 
-                    $pattern = '/<wiki>\s*(.*)\s*<\/wiki>/isUe';
-                    $replacement = '\'<a class="broken" href="' . $GLOBALS[ 'url' ] . '?action=edit&amp;create=\' . urlencode( $this->cleanName( \'$1\' ) ) . \'" title="\' . htmlspecialchars( "' . $GLOBALS[ 'title' ] . '" ) . \': Create \' . htmlspecialchars( $this->cleanName( "$1" ) ) . \' page">\' . htmlspecialchars( $this->cleanName( "$1" ) ) . \'+</a>\'';
+					foreach($matches[1] as $match) {
 
-                    $page[ 'content' ] = preg_replace( $pattern, $replacement, $page[ 'content' ] );
-                }
+						$pageName = $this->cleanName($match);
+						$enc = urlencode($pageName);
+						$html = htmlspecialchars($match);
+
+						$pattern = '/<wiki>\s*' . preg_quote($match) . '\s*<\/wiki>/isU';
+						$replacement = '<a class="broken" href="' . $GLOBALS[ 'url' ] . '?action=edit&amp;create=' . $enc . '" title="Create page: ' . $html . '">' . $html . '+</a>';
+
+						$page[ 'content' ] = preg_replace( $pattern, $replacement, $page[ 'content' ] );
+					}
+				}
 
             }
-            return $page;
+			//$page[ 'content' ] = nl2br( $page[ 'content' ] );
+            
+			$Parsedown = new Parsedown();
+			$page[ 'content' ] = $Parsedown->text($page[ 'content' ]);
+			
+			return $page;
         }
 
         function getPageAlternative( $pageTitle ) {
@@ -375,6 +387,15 @@
             $str = preg_replace( '/\s+/', ' ', $str );        // normalise whitespace
             return $str;
         }
+		
+		function whatLinksHere($pageName)
+		{
+			$query = 'SELECT elaborate_pages.title FROM 
+				elaborate_pages inner join elaborate_links where elaborate_pages.id = elaborate_links.page 
+				and elaborate_links.link = "' . $pageName . '"';
+		
+			  return $this->db->getRows($query);
+		}
     }
 
 ?>

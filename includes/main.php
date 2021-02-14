@@ -31,6 +31,7 @@
     include( 'classes/Form.class.php' );
     include( 'classes/User.class.php' );
     include( 'classes/Mail.class.php' );
+    include( 'classes/Parsedown.php' );
 
     $GLOBALS[ 'version' ] = '2020-11-24';
 
@@ -115,6 +116,10 @@
             }
             case 'login' : {
                 include( 'includes/login.php' );
+                break;
+            }
+            case 'tools' : {
+                include( 'includes/tools.php' );
                 break;
             }
             case 'all' : {

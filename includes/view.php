@@ -49,5 +49,7 @@
     }
 
     $data[ 'page' ][ 'type' ] = 'view';
+	
+	$data[ 'page' ][ 'incoming' ] = $wiki->whatLinksHere($pageName);
     
 ?>

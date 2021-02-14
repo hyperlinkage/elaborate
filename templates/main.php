@@ -9,20 +9,19 @@
 
     } else {
 
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xml:lang="en-gb" lang="en-gb"
-    xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE html>
+<html>
 
 <head>
 
-    <title><?php print( $data[ 'site' ][ 'title' ] . ' : ' . $data[ 'page' ][ 'title' ] ); ?></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <title><?php print( $data[ 'page' ][ 'title' ] . ' - ' . $data[ 'site' ][ 'title' ] ); ?></title>
 
     <link href="<?php print( $data[ 'site' ][ 'url' ] ); ?>res/css/print.css" type="text/css" rel="stylesheet" media="print" />
     <link href="<?php print( $data[ 'site' ][ 'url' ] ); ?>res/css/default.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="<?php print( $data[ 'site' ][ 'url' ] ); ?>res/css/dark.css" type="text/css" rel="stylesheet" media="screen" />
 
 </head>
 
@@ -38,8 +37,12 @@
 
     <div id="header">
 
-        <div class="logo"><?php print( $data[ 'site' ][ 'title' ] ); ?></div>
+        <div class="logo"><a href="<?php print( $data[ 'site' ][ 'url' ] ); ?>" title="Go to home page"><?php print( $data[ 'site' ][ 'title' ] ); ?></a></div>
     
+        <div class="nav">
+			<a href="<?php print( $data[ 'site' ][ 'url' ] ); ?>?action=tools">Wiki Tools</a>
+        </div>
+		
         <div class="search">
 
             <form id="frmSearch" action="<?php print( $data[ 'site' ][ 'url' ] ); ?>?action=search" method="post">
@@ -47,17 +50,6 @@
             </form>
 
         </div>
-
-        <div class="nav">
-
-            <ul>
-                <li><a href="<?php print( $data[ 'site' ][ 'url' ] ); ?>" title="Go to home page">Home Page</a></li>
-                <li><a href="<?php print( $data[ 'site' ][ 'url' ] ); ?>?action=all" title="View the full index of pages">Page Index</a></li>
-                <li><a href="<?php print( $data[ 'site' ][ 'url' ] ); ?>?action=rssfeeds" title="View available RSS feeds for this site">RSS Feeds</a></li>
-            </ul>
-
-        </div>
-
     </div>
 
 <?php
@@ -104,6 +96,10 @@
         }
         case 'all' : {
             include( 'templates/all.php' );
+            break;
+        }
+        case 'tools' : {
+            include( 'templates/tools.php' );
             break;
         }
         case 'changes' : {

@@ -27,70 +27,64 @@
 }
 
 body {
-    color: #333333;
-    background: #cccccc;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     font-size: 13px;
     line-height: 140%;
     text-align: center;
 }
 
 #container {
-    width: 750px;
-    margin: 10px auto 0 auto;
+    width: 100%;
+	max-width: 900px;
+    margin: 0 auto 0 auto;
+	padding: 0;
     text-align: left;
 }
-
 
 /* common site header */
 
 #header {
-    height: 48px;
-    padding: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
 }
 
 #header .logo {
     font-size: 18px;
-
+	padding-bottom: 10px;
+	float: left;
 }
 
-#header .nav {
-    padding-top: 5px;
+#header .logo a 
+{
+	text-decoration: none;
 }
 
-#header .nav ul {
-    margin: 0;
-    padding: 0;
+#header .nav
+{
+	float: right;
 }
 
-#header .nav li {
-    width: 75px;
-    display: block;
-    float: left;
-    margin: 0 2px 0 0;
-    padding: 0;
-    font-size: 11px;
-}
-
-#header .nav li a {
-    color: #000000;
+#header .nav a {
     text-decoration: none;
+    font-size: 11px;
 }
 
 
 #header .search {
-    width: 200px;
-    float: right;
-    text-align: right;
+	display: block;
+	clear: both;
     font-size: 11px;
+	padding: 0 0 10px 0;
+	text-align: center;
 }
 
 #header .search input {
-    font-size: 11px;
-    margin: 0 0 0 2px;
-    padding-left: 2px;
     border: 1px solid #999999;
+}
+
+#header .search input.text {
+	width: 200px;
+	margin-right: 2px;
 }
 
 #header form {
@@ -103,10 +97,9 @@ body {
 }
 
 #tabs {
-    padding-left: 10px;
-    background: url(../images/tab-bar-bg.gif) no-repeat bottom left;
-    padding-bottom: 4px;
-    border-top: 1px solid #cccccc;
+    padding-right: 10px;
+	float: right;
+	clear: both;
 }
 
 #tabs ul {
@@ -124,20 +117,21 @@ body {
     margin: 0 2px 0 0;
     padding: 0;
     font-size: 11px;
-    background: url(../images/tab-bg.gif) no-repeat top left;
+	border-radius: 5px 5px 0 0;
+	border-bottom: none;  
 }
 
 #tabs a {
     display: block;
     padding: 2px 0 0 10px;
-    color: #000000;
     text-decoration: none;
 }
 
 #page {
-    background: #ffffff url(../images/page-bg.gif) no-repeat bottom left;
     padding: 5px 20px 18px 20px;
     margin: 0;
+	border-radius: 5px;
+	clear: both;
 }
 
 #footer {
@@ -149,14 +143,6 @@ body {
     font-size: 10px;   
 }
 
-a {
-    color: #0000ff;
-}
-
-a:hover {
-    color: #00ff00;
-}
-
 img {
     border: none;   
 }
@@ -165,6 +151,9 @@ h1 {
     font-size: 22px;
     font-weight: normal;
     margin: 8px 0 16px 0;
+    line-height: 130%;
+	border-bottom: 1px double #999999;
+	padding-bottom: 4px;
 }
 
 h2 {
@@ -180,15 +169,19 @@ h3 {
 }
 
 p, td, li, dt, dd {
-    font: 13px/140% "Trebuchet MS", Verdana, sans-serif;
+    font: 16px/140% "Trebuchet MS", Verdana, sans-serif;
 }
 
 p {
     margin: 0 0 16px 0;
 }
 
+li {
+	margin-bottom:8px;
+}
+
 p.date {
-    margin: 0;
+    margin: 10px 0 0 0;
     font-size: 10px;
     font-style: italic;    
 }
@@ -207,8 +200,10 @@ code, code *, pre, pre * {
     font: 12px "Lucida Console","Courier New",monospace;
 }
 
-code, pre {
-    color: #555555;   
+pre
+{
+	/* https://stackoverflow.com/a/8306643/10046 */
+	white-space: pre-wrap;
 }
 
 thead td, th {
@@ -241,17 +236,24 @@ textarea.text {
 textarea.html {
     padding: 0 0 0 2px;
     font:  12px "Lucida Console","Courier New",monospace;
-    width: 700px;
+    width: 100%;
     height: 300px;    
     border: 1px solid #999999;
 }
 
 input.button {
-    background: #999999;
+    background: #666666;
     color: #ffffff;
-    border: none;
+    border: 1px solid #999999;
+	border-radius: 5px;
     margin-right: 2px;
-    padding: 0 2px 0 2px;    
+    padding: 1px 4px 1px 4px;    
+}
+
+input.button:hover
+{
+	background: #999999;
+    border-color: #cccccc;
 }
 
 div.field {
@@ -266,9 +268,6 @@ div.label {
     color: #ff0000;    
 }
 
-.broken {
-    color: #666666;   
-}
 
 /* file comparisons */
 
@@ -299,4 +298,15 @@ table.diff td {
 }
 .null {
     background-color: #cccccc;
+}
+
+table.data {
+	width: 100%;
+}
+
+table.data td, 
+table.data th {
+	vertical-align: top;
+	/*white-space: nowrap;*/
+	font-size: 13px;
 }
