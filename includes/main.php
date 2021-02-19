@@ -146,6 +146,10 @@
                 include( 'includes/edit.php' );
                 break;
             }
+            case 'recent' : {
+                include( 'includes/recent.php' );
+                break;
+            }
             default : {            
                 include( 'includes/view.php' );
                 break;
