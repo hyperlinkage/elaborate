@@ -8,18 +8,22 @@
         print '<p><a href="?page=' . urlencode( $data[ 'page' ][ 'alt' ] ) . '">' . $data[ 'page' ][ 'alt' ] . '</a></p>' . "\n\n";
     }
 
-
-	if($data[ 'page' ][ 'incoming' ]) {
-		print "<h3>See Also</h3>";
-		print "<ul>";
-		foreach( $data[ 'page' ][ 'incoming' ] as $lnk ) {
-			print "<li><a href=\"?page=" . $lnk['title'] . "\">" . $lnk['title'] . "</a></li>";
-		}
-		print "</ul>";
-	}
-
     if( isset( $data[ 'page' ][ 'modified' ] ) ) {
         print '<p class="date">Page updated ' . readableDate( $data[ 'page' ][ 'modified' ] ) . '</p>' . "\n\n"; 
     }
+
+
+	if($data[ 'page' ][ 'incoming' ]) {
+		print "<div class=\"incoming\">";
+		print "<p>Incoming Links: ";
+		foreach( $data[ 'page' ][ 'incoming' ] as $key =>  $lnk ) {
+			if($key != 0)
+			{
+				print "&bull;&nbsp;";
+			}
+			print "<a href=\"?page=" . $lnk['title'] . "\">" . $lnk['title'] . "</a> ";
+		}
+		print "</div>";
+	}
 
 ?>

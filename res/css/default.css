@@ -163,7 +163,7 @@ h2 {
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     margin: 16px 0 8px 0;
 }
@@ -184,6 +184,7 @@ p.date {
     margin: 10px 0 0 0;
     font-size: 10px;
     font-style: italic;    
+	text-align: right;
 }
 
 dt {
@@ -309,4 +310,32 @@ table.data th {
 	vertical-align: top;
 	/*white-space: nowrap;*/
 	font-size: 13px;
+}
+
+.incoming
+{
+	margin: 20px 0 0 0;
+	padding: 10px;
+	background: #222222;
+	border: 1px solid #999999;
+}
+
+.incoming p
+{
+	font-size: 14px;
+    margin: 0 0 0 0;
+}
+
+
+.incoming a
+{
+	white-space: nowrap;
+}
+
+.keyword 
+{
+	display: inline-block;
+	padding: 0 2px 0 2px;
+	color: black;
+	background-color: #99ff99;
 }

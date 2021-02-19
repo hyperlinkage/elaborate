@@ -181,7 +181,7 @@
                 if( preg_match( $pattern, $r[ 'content' ], $matches ) ) {
 
                     // add bold tags to highlight the search term
-                    $highlight = '<strong>' . $matches[ 3 ] . '</strong>';
+                    $highlight = '<strong class="keyword">' . $matches[ 3 ] . '</strong>';
 
                     // add ... to indicate that chars were removed from the start or end
                     $startText = ( empty( $matches[ 1 ] ) ? '' : '...' ) . ltrim( $matches[ 2 ] );
